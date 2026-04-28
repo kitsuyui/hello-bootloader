@@ -15,16 +15,23 @@ message: db "Hello, World!", 0
 
 start:
   cli
+  xor ax, ax
+  mov ds, ax
+  mov es, ax
+  mov ss, ax
+  mov sp, 0x7C00
+  sti
+
   mov si, message
   mov ah, BIOS_FUNCTION_DISPLAY_CHAR
 
-  .putstr_loop
+  .putstr_loop:
     lodsb
     or al, al
       jz .end_putstr_loop
     int BIOS_FUNCTION
     jmp .putstr_loop
-  .end_putstr_loop
+  .end_putstr_loop:
 
   hlt
 
