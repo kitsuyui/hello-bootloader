@@ -20,4 +20,4 @@ run-qemu: $(bootloader_image)
 
 .PHONY: clean
 clean:
-	rm -f $ $(bootloader_image)
+	rm -f $(bootloader_image)
