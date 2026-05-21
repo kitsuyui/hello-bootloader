@@ -20,6 +20,7 @@ start:
   mov es, ax
   mov ss, ax
   mov sp, 0x7C00
+  cld
   sti
 
   mov si, message
