@@ -11,8 +11,6 @@ bits 16
 %define BIOS_FUNCTION_DISPLAY_CHAR 0x0E
 %define BIOS_FUNCTION 0x10
 
-message: db "Hello, World!", 0
-
 start:
   cli
   xor ax, ax
@@ -35,6 +33,8 @@ start:
   .end_putstr_loop:
 
   hlt
+
+message: db "Hello, World!", 0
 
 times MBR_MAX_SIZE_BYTES - ($ - $$) db 0
 dw MBR_SIGNATURE
