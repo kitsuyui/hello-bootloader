@@ -9,7 +9,9 @@ bits 16
 %define MBR_SIGNATURE 0xAA55
 %define MBR_MAX_SIZE_BYTES 510
 %define BIOS_FUNCTION_DISPLAY_CHAR 0x0E
+%define BIOS_FUNCTION_SET_VIDEO_MODE 0x00
 %define BIOS_FUNCTION 0x10
+%define VIDEO_MODE_TEXT_80x25 0x03
 
 start:
   cli
@@ -20,6 +22,10 @@ start:
   mov sp, 0x7C00
   cld
   sti
+
+  mov ah, BIOS_FUNCTION_SET_VIDEO_MODE
+  mov al, VIDEO_MODE_TEXT_80x25
+  int BIOS_FUNCTION
 
   mov si, message
   mov ah, BIOS_FUNCTION_DISPLAY_CHAR
