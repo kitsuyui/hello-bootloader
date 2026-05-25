@@ -2,6 +2,8 @@ sources = src/helloworld_bootloader.asm
 bootloader_binary = build/bootloader_binary.bin
 bootloader_image = build/bootloader.img
 
+.DELETE_ON_ERROR:
+
 .PHONY: all
 all: $(bootloader_image)
 
