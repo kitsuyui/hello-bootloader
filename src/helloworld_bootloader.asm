@@ -34,6 +34,7 @@ start:
     lodsb
     or al, al
       jz .end_putstr_loop
+    mov ah, BIOS_FUNCTION_DISPLAY_CHAR
     int BIOS_FUNCTION
     jmp .putstr_loop
   .end_putstr_loop:
