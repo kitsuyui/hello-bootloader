@@ -41,3 +41,18 @@ The build writes `build/bootloader_binary.bin` and `build/bootloader.img`.
 ```sh
 make run-qemu
 ```
+
+## Development
+
+Install [lefthook](https://github.com/evilmartians/lefthook) and register the hooks:
+
+```sh
+lefthook install
+```
+
+This sets up the following local checks that run before every commit and push:
+
+- **spellcheck** – runs `typos` to catch spelling mistakes, mirroring the `spellcheck` CI job.
+- **build** – assembles the bootloader with `make` (requires `nasm`) and then runs `make clean` to leave the tree clean.
+
+If either tool is not installed, the corresponding hook will fail. Install the missing tool or remove the relevant entry from `lefthook.yml` for your local setup.
