@@ -8,6 +8,7 @@ bootloader_image = build/bootloader.img
 all: $(bootloader_image)
 
 $(bootloader_binary): $(sources)
+	mkdir -p build
 	nasm -f bin -o $(bootloader_binary) $(sources)
 
 $(bootloader_image): $(bootloader_binary)
@@ -22,4 +23,4 @@ run-qemu: $(bootloader_image)
 
 .PHONY: clean
 clean:
-	rm -f $(bootloader_image)
+	rm -f $(bootloader_image) $(bootloader_binary)
