@@ -40,7 +40,9 @@ start:
     jmp .putstr_loop
   .end_putstr_loop:
 
+.halt:
   hlt
+  jmp .halt
 
 message: db "Hello, World!", 0
 
