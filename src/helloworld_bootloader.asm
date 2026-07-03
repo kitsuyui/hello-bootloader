@@ -29,6 +29,7 @@ start:
 
   mov si, message
   mov ah, BIOS_FUNCTION_DISPLAY_CHAR
+  xor bh, bh  ; INT 10h AH=0Eh expects BH=0 (video page 0)
 
   .putstr_loop:
     lodsb
