@@ -12,6 +12,8 @@ Building the bootloader requires these command-line tools:
 Running the image locally also requires:
 
 - `qemu-system-x86_64` to boot the generated image in QEMU.
+  QEMU must be built with a graphical display backend (such as SDL on Linux or Cocoa on macOS).
+  Headless environments without a display are not supported by `make run-qemu`.
 
 The project is known to build with NASM 3.01. No narrower minimum NASM
 version is declared.

@@ -18,7 +18,6 @@ $(bootloader_image): $(bootloader_binary)
 run-qemu: $(bootloader_image)
 	qemu-system-x86_64 \
 		-monitor stdio \
-		-vnc :0,password \
 		-drive file=$(bootloader_image),format=raw
 
 .PHONY: clean
