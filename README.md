@@ -69,3 +69,16 @@ This sets up the following local checks that run before every commit and push:
 - **runtime smoke test** – runs `make check` to verify that the booted image emits `Hello, World!` through the automated QEMU observation path.
 
 If either tool is not installed, the corresponding hook will fail. Install the missing tool or remove the relevant entry from `lefthook.yml` for your local setup.
+
+### Updating .gitignore
+
+`.gitignore` is generated from the boilerplate categories listed in `.gitignore.in` using
+[gibo](https://github.com/simonwhitaker/gibo) and
+[gitignore.in](https://github.com/gitignore-in/gitignore-in). Do not edit `.gitignore` directly;
+edit `.gitignore.in` instead, then regenerate:
+
+```sh
+make gitignore
+```
+
+This requires both `gibo` and `gitignore.in` to be installed and on `PATH`.
