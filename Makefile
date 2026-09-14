@@ -43,3 +43,7 @@ check: $(bootloader_image)
 .PHONY: clean
 clean:
 	rm -f $(bootloader_image) $(bootloader_binary) $(runtime_output) build/qemu.pid
+
+.PHONY: gitignore
+gitignore:
+	gitignore.in
